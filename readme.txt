@@ -199,7 +199,7 @@ http://127.0.0.1:8000/docs
 This project was built to explore how agentic AI, graph databases, and retrieval-augmented generation can work together to support explainable financial compliance workflows.
 
 
-Example:
+Example 1:
 {
   "transaction_id": "TXN002",
   "sender": "John",
@@ -230,3 +230,27 @@ WARNING:  WatchFiles detected changes in 'graph\neo4j_client.py'. Reloading...
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
 INFO:     Finished server process [10348]
+
+
+Example 2 :
+{
+  "transaction_id": "TXN1001",
+  "sender": "Alice",
+  "receiver": "Amazon India",
+  "amount": 5000,
+  "country": "India",
+  "device_id": "DEV101",
+  "ip_address": "49.36.120.10",
+  "bank_account": "SBIN123456789"
+}
+
+Response:
+
+Graph Risks:
+{'shared_device': {'detected': True, 'device_id': 'D1', 'other_customers': ['John']}, 'circular_flow': {'detected': False, 'cycle_count': 0}, 'mule_account': {'detected': False, 'incoming_senders': 0}}
+Shared: {'detected': True, 'device_id': 'D1', 'other_customers': ['John']}
+Circular: {'detected': False, 'cycle_count': 0}
+Mule: {'detected': False, 'incoming_senders': 0}
+{'transaction': {'transaction_id': 'TXN1001', 'sender': 'Alice', 'receiver': 'Amazon India', 'amount': 5000.0, 'country': 'India', 'device_id': 'DEV101', 'ip_address': '49.36.120.10', 'bank_account': 'SBIN123456789'}, 'kyc_status': 'PASS', 'aml_flag': True, 'aml_reasons': ['Customer shares device D1 with John'], 'graph_risks': {'shared_device': {'detected': True, 'device_id': 'D1', 'other_customers': ['John']}, 'circular_flow': {'detected': False, 'cycle_count': 0}, 'mule_account': {'detected': False, 'incoming_senders': 0}}, 'matched_rules': ['Compliance and Internal Controls', 'Resources and Compliance', '15. Reporting & Compliance'], 'risk_score': 70, 'risk_reasons': ['Large transaction amount, AML screening triggered', 'Compliance rules matched'], 'audit_report': "**Financial Compliance Audit Report**\n\n**Report Date:** October 26, 2023\n**Audit Subject:** Transaction TXN1001 – Alice to Amazon India - INR 5000.00\n\n**Prepared By:** [Your Name], Senior Financial Compliance Auditor\n\n---\n\n**1. Executive Summary**\n\nThis report details the findings of an audit conducted on transaction ID TXN1001, involving a transfer of INR 5000.00 from Alice to Amazon India in India. The transaction was flagged due to a risk score of 70, triggered by a combination of factors including a large transaction amount and associated AML screening results.  The investigation revealed a shared device (‘D1’) used by Alice and another customer (John), along with adherence to relevant compliance rules related to reporting and controls. While the transaction itself was authorized via KYC, the identified risk necessitates further scrutiny and potential enhanced due diligence procedures going forward.\n\n---\n\n**2. Transaction Details**\n\n*   **Transaction ID:** TXN1001\n*   **Sender:** Alice\n*   **Receiver:** Amazon India\n*   **Amount:** INR 5000.00\n*   **Country:** India\n*   **KYC Status:** PASS\n\n\n---\n\n**3. AML Findings**\n\nThe Anti-Money Laundering (AML) review revealed the following key findings:\n\n*   **AML Reasons:** The primary AML reason for flagging this transaction is “Customer shares device D1 with John.” This indicates a potential link between Alice and another customer via shared device usage, raising concerns about potential illicit activity.\n*   **Graph Investigation – Shared Device:**  The graph investigation confirmed the detection of shared device ‘D1’, with John listed as another customer utilizing this device alongside Alice. \n*   **Circular Flow:** No circular flow was detected during the AML review.\n*   **Mule Account:** The system did not detect any potential mule account activity associated with this transaction (incoming senders = 0).\n\n\n\n---\n\n**4. Graph Investigation**\n\nThe graph investigation focused on identifying patterns and relationships related to this transaction, specifically focusing on device usage:\n\n*   **Detected:** True – A shared device ('D1') was confirmed to be in use by both Alice and John.\n*   **Device ID:** D1 \n*   **Other Customers:** John\n\n\n---\n\n**5. Compliance Findings**\n\nThis transaction’s compliance was assessed against the following rules:\n\n*   **Compliance Rules:** ‘Compliance and Internal Controls’, ‘Resources and Compliance’, ‘15. Reporting & Compliance’. The transaction triggered a match against these rules, contributing to the overall risk score.  The AML screening being triggered also indicates adherence to standard compliance protocols.\n\n\n\n---\n\n**6. Recommendation**\n\nBased on the findings of this audit, we recommend the following actions:\n\n*   **Enhanced Due Diligence (EDD) – Device Linkage:** Conduct enhanced due diligence on Alice and John, focusing on understanding the nature of their relationship and the purpose behind shared device usage ('D1').  Investigate if there are any legitimate reasons for the shared device.\n*   **Review Shared Device Policies**: A review of existing policies concerning shared devices and potential risks is recommended to determine if stricter controls or monitoring procedures are warranted, especially in high-value transactions.\n*   **Risk Score Review:** Reassess the risk scoring methodology to ensure accurate reflection of factors like shared device usage and transaction amounts.  Consider adjusting thresholds to improve detection capabilities.\n* **Ongoing Monitoring**: Implement continuous monitoring for any further activity associated with the shared device 'D1' or John. \n\nThis report is intended solely for internal use by [Your Organization Name] and should not be distributed without authorization.\n\n\n---\n\n**End of Report**", 'final_decision': 'ENHANCED_DUE_DILIGENCE', 'review_by': 'AML Investigation Team', 'decision_reason': 'Large transaction amount, AML screening triggered, Compliance rules matched', 'decision_trace': ['AML Agent: Customer shares device D1 with John', 'Compliance Agent: 3 rules matched', 'KYC Agent: Status = PASS', 'Risk Agent: Risk Score = 70', 'Audit Agent: Audit report generated', 'Human Agent: ENHANCED_DUE_DILIGENCE → AML Investigation Team']}
+
+Example 3: 
