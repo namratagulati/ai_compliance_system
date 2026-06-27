@@ -10,6 +10,7 @@ class Transaction(BaseModel):
     amount: float
     country: str
 
-    device_id: Optional[str] = None
-    ip_address: Optional[str] = None
-    bank_account: str
+    
+    device_id: str | None = None
+    ip_address: str | None = None
+    bank_account: str | None = None
