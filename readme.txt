@@ -1,10 +1,10 @@
-# AI Compliance Review System
+#AI Compliance Review System
 An AI-powered compliance workflow that automates KYC, AML checks, regulatory validation, risk assessment, audit report generation, and human review for financial transactions.
 The project uses multiple AI agents orchestrated with LangGraph and combines Retrieval-Augmented Generation (RAG) with graph analytics to provide explainable compliance decisions.
 
 ---
 
-## Features
+##Features
 
 * Multi-agent workflow using LangGraph
 * KYC verification
@@ -18,7 +18,7 @@ The project uses multiple AI agents orchestrated with LangGraph and combines Ret
 
 ---
 
-## Tech Stack
+##Tech Stack
 
 * Python
 * FastAPI
@@ -32,7 +32,7 @@ The project uses multiple AI agents orchestrated with LangGraph and combines Ret
 
 ---
 
-## Project Structure
+##Project Structure
 
 ```
 agents/
@@ -48,7 +48,7 @@ main.py
 
 ---
 
-## Workflow
+##Workflow
 
 ```
 Transaction
@@ -74,14 +74,11 @@ Transaction
              │
              ▼
        Final Decision
-```
 
----
 
-## Neo4j Graph
+##Neo4j Graph
 
 Each transaction is stored as a relationship graph containing:
-
 * Customer
 * Transaction
 * Device
@@ -96,7 +93,7 @@ The graph is used to identify:
 
 ---
 
-## RAG Pipeline
+##RAG Pipeline
 
 Compliance documents are indexed in ChromaDB.
 
@@ -110,9 +107,9 @@ During review, the Compliance Agent retrieves the most relevant regulations and 
 
 ---
 
-## API Endpoints
+##API Endpoints
 
-### Review Transaction
+###Review Transaction
 
 ```
 POST /review
@@ -128,7 +125,7 @@ Returns:
 * Audit report
 * Decision trace
 
-### Explain Transaction
+###Explain Transaction
 
 ```
 POST /explain
@@ -138,7 +135,7 @@ Returns the regulations and reasoning behind the compliance decision.
 
 ---
 
-## Sample Request
+##Sample Request
 
 ```json
 {
@@ -155,7 +152,7 @@ Returns the regulations and reasoning behind the compliance decision.
 
 ---
 
-## Running the Project
+##Running the Project
 
 Install dependencies:
 
@@ -189,7 +186,7 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## Future Improvements
+##Future Improvements
 * Customer risk profiling
 * Sanctions and PEP screening
 * Real-time transaction streaming
