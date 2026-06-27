@@ -1,0 +1,103 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+chroma_db/
+persist/
+.cache/
+# Environment variables
+.env
+.env.*
+
+# IDE settings
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# =========================
+# ChromaDB
+# =========================
+chroma_db/
+chromadb/
+persist/
+
+# =========================
+# HuggingFace Cache
+# =========================
+.cache/
+huggingface/
+hf_cache/
+
+# =========================
+# Ollama (only if models are inside project)
+# =========================
+models/
+
+# =========================
+# Neo4j
+# =========================
+neo4j_data/
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.bak
+*.swp
+
+# =========================
+# VS Code Testing
+# =========================
+.history/
+.venv/
+venv/
+
+__pycache__/
+
+.env
+
+chroma_db/
+persist/
+
+.cache/
+
+*.bin
+*.pt
+*.pth
+*.onnx
+
+models/
+
+*.db
